@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IGOR.EntityModel.Entities.Component">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAQGAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Component.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.Cpu">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Cpu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.Drive">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Entities\Drive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.GraphicsCard">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\GraphicsCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.Manufacturer">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAIAAAAAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Manufacturer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.MemoryType">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Entities\MemoryType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.Motherboard">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAACAAQAAAAAAAAAAAAAAAQAAACAAAAAAAAA=</HashCode>
+      <FileName>Entities\Motherboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.Order">
+    <Position X="8.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Entities\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.OrderItem">
+    <Position X="10.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAECAAAAAACAAAAAAAAAAAQAAAAAAAAAAABACAAAAAA=</HashCode>
+      <FileName>Entities\OrderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGOR.EntityModel.Entities.Ram">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAACAAAAAAAAAAAACAIAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Entities\Ram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IGOR.EntityModel.Derictories.ComponentDerictory" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\ComponentDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.167" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.CpuDerictory" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\CpuDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.DriveDerictory" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\DriveDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.GraphicsCardDerictory" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\GraphicsCardDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.ManufacturerDerictory" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\ManufacturerDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.MemoryTypeDerictory" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\MemoryTypeDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.MotherboardDerictory" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\MotherboardDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.OrderDerictory" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\OrderDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.OrderItemDerictory" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\OrderItemDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IGOR.EntityModel.Derictories.RamDerictory" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\RamDerictory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="IGOR.EntityModel.Derictories.IDerictory&lt;T&gt;">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQCQAAAAAAAAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Derictories\IDerictory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

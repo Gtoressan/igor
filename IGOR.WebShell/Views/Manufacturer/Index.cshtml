@@ -1,0 +1,42 @@
+﻿@model IEnumerable<IGOR.EntityModel.Entities.Manufacturer>
+
+@{
+	ViewBag.Title = "Список";
+}
+
+<h2>Список производителей</h2>
+
+@using (Html.BeginForm("Index", "Manufacturer", FormMethod.Get)) {
+	<input type="text" class="form-control" name="country" placeholder="Страна..." />
+	<button type="submit" class="btn btn-primary">Найти/сбросить</button>
+	<hr />
+}
+
+<p>
+	@Html.ActionLink("Добавить", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>@Html.DisplayNameFor(model => model.Country)</th>
+		<th>@Html.DisplayNameFor(model => model.Name)</th>
+		<th></th>
+	</tr>
+
+	@if (Model.Count() != 0) {
+		foreach (var item in Model) {
+			<tr>
+				<td>@item.Country</td>
+				<td>@item.Name</td>
+				<td>
+					@Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+				</td>
+			</tr>
+		}
+	} else {
+		<tr>
+			<td style="color:coral">Список пуст.</td>
+		</tr>
+	}
+
+</table>

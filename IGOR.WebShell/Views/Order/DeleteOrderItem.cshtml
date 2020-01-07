@@ -1,0 +1,31 @@
+﻿@model IGOR.EntityModel.Entities.OrderItem
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите удалить данную информацию?</h3>
+<div>
+    <h4>Товар</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Count)</dt>
+        <dd>@Model.Count.ToString("N0")</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.ComponentId)</dt>
+        <dd>@Model.Component.Name</dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-primary" /> |
+            @Html.ActionLink("Назад к заказу", "Details", new { id = Model.OrderId })
+        </div>
+    }
+</div>

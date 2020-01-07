@@ -1,0 +1,59 @@
+﻿@model IEnumerable<IGOR.EntityModel.Entities.Motherboard>
+
+@{
+	ViewBag.Title = "Список";
+}
+
+<h2>Список материнских плат</h2>
+
+@using (Html.BeginForm("Index", "Motherboard", FormMethod.Get)) {
+	<input type="text" class="form-control" name="model.Manufacturer" placeholder="Производитель.." />
+	<input type="text" class="form-control" name="model.Name" placeholder="Наименование.." />
+	<input type="number" class="form-control" name="model.LowPriceBorder" placeholder="Цена от.." min="0" step="0.01" />
+	<input type="number" class="form-control" name="model.HighPriceBorder" placeholder="Цена до.." min="0" step="0.01" />
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" name="model.IsAvailable" id="isAvailable" value="true">
+		<label class="custom-control-label" for="isAvailable">Показать только доступные</label>
+	</div>
+	<input type="submit" class="btn btn-primary" value="Найти/сбросить" />
+	<hr />
+}
+
+<p>
+	@Html.ActionLink("Добавить", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>@Html.DisplayNameFor(model => model.ManufacturerId)</th>
+		<th>@Html.DisplayNameFor(model => model.Name)</th>
+		<th>@Html.DisplayNameFor(model => model.Chipset)</th>
+		<th>@Html.DisplayNameFor(model => model.Socket)</th>
+		<th>@Html.DisplayNameFor(model => model.MemoryTypeId)</th>
+		<th>@Html.DisplayNameFor(model => model.Price)</th>
+		<th>@Html.DisplayNameFor(model => model.Count)</th>
+		<th></th>
+	</tr>
+
+	@if (Model.Count() != 0) {
+		foreach (var item in Model) {
+			<tr>
+				<td>@item.Manufacturer.Name</td>
+				<td>@item.Name</td>
+				<td>@item.Chipset</td>
+				<td>@item.Socket</td>
+				<td>@item.MemoryType.Name</td>
+				<td>@item.Price.ToString("N2")</td>
+				<td>@item.Count.ToString("N0")</td>
+				<td>
+					@Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+				</td>
+			</tr>
+		}
+	} else {
+		<tr>
+			<td style="color:coral">Список пуст.</td>
+		</tr>
+	}
+
+</table>

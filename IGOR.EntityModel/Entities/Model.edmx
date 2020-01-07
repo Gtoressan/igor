@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Manufacturers" EntityType="Model.Store.Manufacturers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components" EntityType="Model.Store.Components" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="Model.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderItems" EntityType="Model.Store.OrderItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemoryTypes" EntityType="Model.Store.MemoryTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components_Ram" EntityType="Model.Store.Components_Ram" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components_Motherboard" EntityType="Model.Store.Components_Motherboard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components_Cpu" EntityType="Model.Store.Components_Cpu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components_GraphicsCard" EntityType="Model.Store.Components_GraphicsCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components_Drive" EntityType="Model.Store.Components_Drive" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ManufacturerComponent" Association="Model.Store.ManufacturerComponent">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Component" EntitySet="Components" />
+    </AssociationSet>
+    <AssociationSet Name="ComponentOrderItem" Association="Model.Store.ComponentOrderItem">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="OrderOrderItem" Association="Model.Store.OrderOrderItem">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="MemoryTypeRam" Association="Model.Store.MemoryTypeRam">
+      <End Role="MemoryType" EntitySet="MemoryTypes" />
+      <End Role="Ram" EntitySet="Components_Ram" />
+    </AssociationSet>
+    <AssociationSet Name="MemoryTypeMotherboard" Association="Model.Store.MemoryTypeMotherboard">
+      <End Role="MemoryType" EntitySet="MemoryTypes" />
+      <End Role="Motherboard" EntitySet="Components_Motherboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ram_inherits_Component" Association="Model.Store.FK_Ram_inherits_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Ram" EntitySet="Components_Ram" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Motherboard_inherits_Component" Association="Model.Store.FK_Motherboard_inherits_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Motherboard" EntitySet="Components_Motherboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cpu_inherits_Component" Association="Model.Store.FK_Cpu_inherits_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Cpu" EntitySet="Components_Cpu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GraphicsCard_inherits_Component" Association="Model.Store.FK_GraphicsCard_inherits_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="GraphicsCard" EntitySet="Components_GraphicsCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Drive_inherits_Component" Association="Model.Store.FK_Drive_inherits_Component">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Drive" EntitySet="Components_Drive" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Manufacturers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Components">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="real" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderMoment" Type="datetime" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="ComponentId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemoryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Components_Ram">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Capacity" Type="real" Nullable="false" />
+    <Property Name="Frequency" Type="real" Nullable="false" />
+    <Property Name="MemoryTypeId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Components_Motherboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Chipset" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Socket" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MemoryTypeId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Components_Cpu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Frequency" Type="real" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Components_GraphicsCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Capacity" Type="real" Nullable="false" />
+    <Property Name="GraphicalMemoryType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Components_Drive">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Capacity" Type="real" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ManufacturerComponent">
+    <End Role="Manufacturer" Type="Model.Store.Manufacturers" Multiplicity="1" />
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComponentOrderItem">
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="1" />
+    <End Role="OrderItem" Type="Model.Store.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderOrderItem">
+    <End Role="Order" Type="Model.Store.Orders" Multiplicity="1" />
+    <End Role="OrderItem" Type="Model.Store.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemoryTypeRam">
+    <End Role="MemoryType" Type="Model.Store.MemoryTypes" Multiplicity="1" />
+    <End Role="Ram" Type="Model.Store.Components_Ram" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ram">
+        <PropertyRef Name="MemoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemoryTypeMotherboard">
+    <End Role="MemoryType" Type="Model.Store.MemoryTypes" Multiplicity="1" />
+    <End Role="Motherboard" Type="Model.Store.Components_Motherboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Motherboard">
+        <PropertyRef Name="MemoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ram_inherits_Component">
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ram" Type="Model.Store.Components_Ram" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ram">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Motherboard_inherits_Component">
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Motherboard" Type="Model.Store.Components_Motherboard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Motherboard">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cpu_inherits_Component">
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cpu" Type="Model.Store.Components_Cpu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cpu">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GraphicsCard_inherits_Component">
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GraphicsCard" Type="Model.Store.Components_GraphicsCard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GraphicsCard">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Drive_inherits_Component">
+    <End Role="Component" Type="Model.Store.Components" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Drive" Type="Model.Store.Components_Drive" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Drive">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Manufacturers" EntityType="Model.Manufacturer" />
+          <EntitySet Name="Components" EntityType="Model.Component" />
+          <EntitySet Name="Orders" EntityType="Model.Order" />
+          <EntitySet Name="OrderItems" EntityType="Model.OrderItem" />
+          <AssociationSet Name="ManufacturerComponent" Association="Model.ManufacturerComponent">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Component" EntitySet="Components" />
+          </AssociationSet>
+          <AssociationSet Name="ComponentOrderItem" Association="Model.ComponentOrderItem">
+            <End Role="Component" EntitySet="Components" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="OrderOrderItem" Association="Model.OrderOrderItem">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <EntitySet Name="MemoryTypes" EntityType="Model.MemoryType" />
+          <AssociationSet Name="MemoryTypeRam" Association="Model.MemoryTypeRam">
+            <End Role="MemoryType" EntitySet="MemoryTypes" />
+            <End Role="Ram" EntitySet="Components" />
+          </AssociationSet>
+          <AssociationSet Name="MemoryTypeMotherboard" Association="Model.MemoryTypeMotherboard">
+            <End Role="MemoryType" EntitySet="MemoryTypes" />
+            <End Role="Motherboard" EntitySet="Components" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Components" Relationship="Model.ManufacturerComponent" FromRole="Manufacturer" ToRole="Component" />
+        </EntityType>
+        <EntityType Name="Component" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Manufacturer" Relationship="Model.ManufacturerComponent" FromRole="Component" ToRole="Manufacturer" />
+          <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Model.ComponentOrderItem" FromRole="Component" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="Cpu" BaseType="Model.Component" >
+          <Property Name="Frequency" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ram" BaseType="Model.Component" >
+          <Property Name="Capacity" Type="Single" Nullable="false" />
+          <Property Name="Frequency" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Type" Relationship="Model.MemoryTypeRam" FromRole="Ram" ToRole="MemoryType" />
+          <Property Name="MemoryTypeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GraphicsCard" BaseType="Model.Component" >
+          <Property Name="Capacity" Type="Single" Nullable="false" />
+          <Property Name="GraphicalMemoryType" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Motherboard" BaseType="Model.Component" >
+          <Property Name="Chipset" Type="String" Nullable="false" />
+          <Property Name="Socket" Type="String" Nullable="false" />
+          <NavigationProperty Name="MemoryType" Relationship="Model.MemoryTypeMotherboard" FromRole="Motherboard" ToRole="MemoryType" />
+          <Property Name="MemoryTypeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Drive" BaseType="Model.Component" >
+          <Property Name="Capacity" Type="Single" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer" Type="String" Nullable="false" />
+          <Property Name="OrderMoment" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Model.OrderOrderItem" FromRole="Order" ToRole="OrderItem" />
+          <Property Name="State" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Component" Relationship="Model.ComponentOrderItem" FromRole="OrderItem" ToRole="Component" />
+          <Property Name="ComponentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Model.OrderOrderItem" FromRole="OrderItem" ToRole="Order" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ManufacturerComponent">
+          <End Type="Model.Manufacturer" Role="Manufacturer" Multiplicity="1" />
+          <End Type="Model.Component" Role="Component" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Component">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ComponentOrderItem">
+          <End Type="Model.Component" Role="Component" Multiplicity="1" />
+          <End Type="Model.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Component">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderOrderItem">
+          <End Type="Model.Order" Role="Order" Multiplicity="1" />
+          <End Type="Model.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MemoryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Rams" Relationship="Model.MemoryTypeRam" FromRole="MemoryType" ToRole="Ram" />
+          <NavigationProperty Name="Motherboards" Relationship="Model.MemoryTypeMotherboard" FromRole="MemoryType" ToRole="Motherboard" />
+        </EntityType>
+        <Association Name="MemoryTypeRam">
+          <End Type="Model.MemoryType" Role="MemoryType" Multiplicity="1" />
+          <End Type="Model.Ram" Role="Ram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ram">
+              <PropertyRef Name="MemoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MemoryTypeMotherboard">
+          <End Type="Model.MemoryType" Role="MemoryType" Multiplicity="1" />
+          <End Type="Model.Motherboard" Role="Motherboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Motherboard">
+              <PropertyRef Name="MemoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Manufacturer)">
+        <MappingFragment StoreEntitySet="Manufacturers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Components">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Component)">
+        <MappingFragment StoreEntitySet="Components">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Ram)">
+        <MappingFragment StoreEntitySet="Components_Ram">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="MemoryTypeId" ColumnName="MemoryTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Motherboard)">
+        <MappingFragment StoreEntitySet="Components_Motherboard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Chipset" ColumnName="Chipset" />
+          <ScalarProperty Name="Socket" ColumnName="Socket" />
+          <ScalarProperty Name="MemoryTypeId" ColumnName="MemoryTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Cpu)">
+        <MappingFragment StoreEntitySet="Components_Cpu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.GraphicsCard)">
+        <MappingFragment StoreEntitySet="Components_GraphicsCard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="GraphicalMemoryType" ColumnName="GraphicalMemoryType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Drive)">
+        <MappingFragment StoreEntitySet="Components_Drive">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="OrderMoment" ColumnName="OrderMoment" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.OrderItem)">
+        <MappingFragment StoreEntitySet="OrderItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemoryTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.MemoryType)">
+        <MappingFragment StoreEntitySet="MemoryTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

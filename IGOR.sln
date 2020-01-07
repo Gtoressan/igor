@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGOR.EntityModel", "IGOR.EntityModel\IGOR.EntityModel.csproj", "{5DE852B7-9B5A-42F1-9938-1F3762F58F6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGOR.WebShell", "IGOR.WebShell\IGOR.WebShell.csproj", "{51D3EDE1-EDCF-4995-9323-3DBE58376352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DE852B7-9B5A-42F1-9938-1F3762F58F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE852B7-9B5A-42F1-9938-1F3762F58F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE852B7-9B5A-42F1-9938-1F3762F58F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE852B7-9B5A-42F1-9938-1F3762F58F6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D3EDE1-EDCF-4995-9323-3DBE58376352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D3EDE1-EDCF-4995-9323-3DBE58376352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D3EDE1-EDCF-4995-9323-3DBE58376352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D3EDE1-EDCF-4995-9323-3DBE58376352}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9918C33-4066-42EB-929B-5C4EA2A200CB}
+	EndGlobalSection
+EndGlobal

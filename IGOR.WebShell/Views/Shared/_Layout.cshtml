@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+	<nav class="container navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<ul class="navbar-nav collapse navbar-collapse mr-auto" id="navbarColor03">
+			<li class="nav-link">@Html.ActionLink("Per2com", "Index", "Home")</li>
+			<li class="nav-link">@Html.ActionLink("Заказы", "Index", "Order")</li>
+			<li class="nav-link">@Html.ActionLink("Процессоры", "Index", "Cpu")</li>
+			<li class="nav-link">@Html.ActionLink("Оперативка", "Index", "Ram")</li>
+			<li class="nav-link">@Html.ActionLink("Накопители", "Index", "Drive")</li>
+			<li class="nav-link">@Html.ActionLink("Видеокарты", "Index", "GraphicsCard")</li>
+			<li class="nav-link">@Html.ActionLink("Материнские платы", "Index", "Motherboard")</li>
+			<li class="nav-link">@Html.ActionLink("Производители", "Index", "Manufacturer")</li>
+			<li class="nav-link">@Html.ActionLink("Типы оперативной памяти", "Index", "MemoryType")</li>
+		</ul>
+	</nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; Технологиеская практика 2019</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

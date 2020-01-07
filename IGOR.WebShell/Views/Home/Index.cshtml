@@ -1,0 +1,13 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+<hr />
+Here we go again..
+<hr />
+
+@using (Html.BeginForm("BuildSalesReport", "Home", FormMethod.Post)) {
+	<div class="form-group">
+		<input type="submit" value="Скачать отчет о продажах (Excel)" class="btn btn-primary" />
+	</div>
+}

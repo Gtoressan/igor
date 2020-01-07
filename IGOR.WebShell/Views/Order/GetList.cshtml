@@ -1,0 +1,7 @@
+﻿@model IEnumerable<IGOR.EntityModel.Entities.Component>
+
+<select class="form-control" name="Target.ComponentId" id="component" >
+	@foreach (var item in Model) {
+		<option value="@item.Id">@item.Name</option>
+	}
+</select>

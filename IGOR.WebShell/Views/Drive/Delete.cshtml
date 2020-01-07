@@ -1,0 +1,43 @@
+﻿@model IGOR.EntityModel.Entities.Drive
+
+@{
+	ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите стереть данную информацию?</h3>
+<div>
+	<h4>Накопитель</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>@Html.DisplayNameFor(model => model.ManufacturerId)</dt>
+		<dd>@Model.Manufacturer.Name</dd>
+
+		<dt>@Html.DisplayNameFor(model => model.Name)</dt>
+		<dd>@Model.Name</dd>
+
+		<dt>@Html.DisplayNameFor(model => model.Capacity)</dt>
+		<dd>@Model.Capacity.ToString("N0")</dd>
+
+		<dt>@Html.DisplayNameFor(model => model.Type)</dt>
+		<dd>@Model.Type</dd>
+
+		<dt>@Html.DisplayNameFor(model => model.Price)</dt>
+		<dd>@Model.Price.ToString("N2")</dd>
+
+		<dt>@Html.DisplayNameFor(model => model.Count)</dt>
+		<dd>@Model.Count.ToString("N0")</dd>
+
+	</dl>
+
+	@using (Html.BeginForm()) {
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Удалить" class="btn btn-primary" />
+			<hr />
+			@Html.ActionLink("Назад к списку", "Index")
+		</div>
+	}
+</div>

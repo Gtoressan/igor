@@ -1,0 +1,89 @@
+﻿@model IGOR.WebShell.Models.ComponentModel<IGOR.EntityModel.Entities.Motherboard>
+
+@{
+	ViewBag.Title = "Добавление";
+}
+
+<h2>Добавление</h2>
+
+
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<h4>Материнская плата</h4>
+		<hr />
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.ManufacturerId, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<select class="form-control" name="Target.ManufacturerId">
+					@foreach (var x in Model.List) {
+						<option value="@x.Value">@x.Text</option>
+					}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Target.Name, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Chipset, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Target.Chipset, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Socket, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Target.Socket, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.MemoryTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<select class="form-control" name="Target.MemoryTypeId">
+					@foreach (var x in Model.List2) {
+						<option value="@x.Value">@x.Text</option>
+					}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="Target.Price" placeholder="0,00" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Count, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<input type="number" class="form-control" name="Target.Count" placeholder="0" min="0" max="2000000000" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Добавить" class="btn btn-primary" />
+				<hr />
+			</div>
+		</div>
+	</div>
+}
+
+<div>
+	@Html.ActionLink("Назад к списку", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

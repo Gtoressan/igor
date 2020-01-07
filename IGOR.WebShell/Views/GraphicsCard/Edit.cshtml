@@ -1,0 +1,83 @@
+﻿@model IGOR.WebShell.Models.ComponentModel<IGOR.EntityModel.Entities.GraphicsCard>
+
+@{
+	ViewBag.Title = "Редактирование";
+}
+
+<h2>Редактирование</h2>
+
+
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<h4>Видеокарта</h4>
+		<hr />
+		@Html.HiddenFor(model => model.Target.Id)
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.ManufacturerId, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<select class="form-control" name="Target.ManufacturerId">
+					@foreach (var x in Model.List) {
+						if (Model.Target.ManufacturerId.ToString() == x.Value) {
+							<option value="@x.Value" selected="selected">@x.Text</option>
+						} else {
+							<option value="@x.Value">@x.Text</option>
+						}
+					}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Target.Name, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Capacity, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<input type="number" class="form-control" name="Target.Capacity" placeholder="0" min="0" max="2000000000" value="@Model.Target.Capacity" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.GraphicalMemoryType, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Target.GraphicalMemoryType, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="Target.Price" placeholder="0,00" value="@Model.Target.Price" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Target.Count, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<input type="number" class="form-control" name="Target.Count" placeholder="0" min="0" max="2000000000" value="@Model.Target.Count" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Сохранить" class="btn btn-primary" />
+				<hr />
+			</div>
+		</div>
+	</div>
+}
+
+<div>
+	@Html.ActionLink("Назад к списку", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

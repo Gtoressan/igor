@@ -1,0 +1,19 @@
+﻿@model System.Exception
+
+@{ 
+	ViewBag.Title = "Ошибка";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ошибка</title>
+</head>
+<body>
+	<hgroup>
+		<h3>При обработке запроса произошла ошибка.</h3>
+		<h6>@Model.Message</h6>
+	</hgroup>
+</body>
+</html>

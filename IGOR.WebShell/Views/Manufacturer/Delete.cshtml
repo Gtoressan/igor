@@ -1,0 +1,31 @@
+﻿@model IGOR.EntityModel.Entities.Manufacturer
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите стереть данную информацию?</h3>
+<div>
+    <h4>Производитель</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Country)</dt>
+        <dd>@Model.Country</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd>@Model.Name</dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-primary" />
+			<hr />
+            @Html.ActionLink("Назад к списку", "Index")
+        </div>
+    }
+</div>
